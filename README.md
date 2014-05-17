@@ -5,23 +5,23 @@
 This is a online machine learning library for some famous classifiers including  
 
 * Passive Agrressive Algorithm
-** L1-hinge loss
-** L2-hinge loss
-* Confidence Weighted 
-** variance version
+    ** L1-hinge loss
+    ** L2-hinge loss
+* Confidence Weighted
+    ** variance version
 * Multi-Class Multi-Label Confidence Weighted 
-** single contraint and diagonal matrix version
+    ** single contraint and diagonal matrix version
 * Adaptive Regularization of Weights
-** dense matrix
-** diagonal matrix
+    ** dense matrix
+    ** diagonal matrix
 * Softconfidence Weighted
-** L1-hinge loss
-** L2-hinge loss
+    ** L1-hinge loss
+    ** L2-hinge loss
 * Softconfidence Weighted
-** L1-hinge loss, single contraint, and diagonal matrix
-** L2-hinge loss, single contraint, and diagonal matrix
+    ** L1-hinge loss, single contraint, and diagonal matrix
+    ** L2-hinge loss, single contraint, and diagonal matrix
 * Logistic Regression (should not be used)
-** solved with stochastic gradient
+  ** solved with stochastic gradient
 
 ## Dependency
 * numpy
