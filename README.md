@@ -34,25 +34,20 @@ Refer to the main function and and class method, examplify.
 
 ## Data Format
 * Dense Matrix  
-
-label,d1,d2,...,dn
-
+    * label,d1,d2,...,dn
     * example for binary
-        * label cardinality must be 2.  
-1,0.1,0.2, ...,0.9  
-2,0.1,0.2, ...,0.9  
-...  
-1,0.1,0.2, ...,0.9  
-2,0.1,0.2, ...,0.9
+        1,0.1,0.2, ...,0.9  
+        2,0.1,0.2, ...,0.9
+        ...  
+        1,0.1,0.2, ...,0.9  
+        2,0.1,0.2, ...,0.9
 
     * example for multi-class
-        * label cardinality can be n.
-1,0.1,0.2, ...,0.9  
-2,0.1,0.2, ...,0.9  
-...  
-3,0.1,0.2, ...,0.9  
-2,0.1,0.2, ...,0.9  
-
+        1,0.1,0.2, ...,0.9  
+        2,0.1,0.2, ...,0.9  
+        ...  
+        3,0.1,0.2, ...,0.9  
+        2,0.1,0.2, ...,0.9  
 
 ## Note
 * Now python is only applicable.
