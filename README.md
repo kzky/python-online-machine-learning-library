@@ -33,26 +33,25 @@ The following classifiers are implemented.
 Refer to the main function and and class method, examplify.
 
 ## Data Format
-* for Dense Matrix
+* Dense Matrix  
+
 label,d_1,d_2,...,d_n
 
-    * example for binary  
+    * example for binary
+        * label cardinality must be 2.  
 1,0.1,0.2, ...,0.9  
 2,0.1,0.2, ...,0.9  
 ...  
 1,0.1,0.2, ...,0.9  
-2,0.1,0.2, ...,0.9  
-
-label cardinality must be 2.
+2,0.1,0.2, ...,0.9
 
     * example for multi-class
+        * label cardinality can be n.
 1,0.1,0.2, ...,0.9  
 2,0.1,0.2, ...,0.9  
 ...  
 3,0.1,0.2, ...,0.9  
-2,0.1,0.2, ...,0.9
-
-label cardinality can not be 2.
+2,0.1,0.2, ...,0.9  
 
 
 ## Note
