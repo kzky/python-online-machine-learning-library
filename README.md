@@ -37,10 +37,10 @@ Refer to the main function and and class method, examplify.
     * label,d1,d2,...,dn
     * example for binary  
         1,0.1,0.2, ...,0.9  
-        2,0.1,0.2, ...,0.9
+        2,0.1,0.2, ...,0.9  
         ...  
         1,0.1,0.2, ...,0.9  
-        2,0.1,0.2, ...,0.9
+        2,0.1,0.2, ...,0.9  
 
     * example for multi-class  
         1,0.1,0.2, ...,0.9  
