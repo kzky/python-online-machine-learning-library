@@ -39,6 +39,13 @@ Refer to the main function and and class method, examplify.
 * A sample is normalized such that the norm of sample is equal to 1.
 * Bias, 1 is added to a sample.
 
+## References
+* http://webee.technion.ac.il/people/koby/publications/arow_nips09.pdf
+* http://www.aclweb.org/anthology/D/D09/D09-1052.pdf
+* https://alliance.seas.upenn.edu/~nlp/publications/pdf/dredze2008f.pdf
+* http://webee.technion.ac.il/people/koby/publications/paper_nips08_std.pdf
+* http://icml.cc/2012/papers/86.pdf
+
 ## Future Plan
 * Sparse matrix is used.
 * Binary classifiers are extended to 1-vs-n and/or pair-wise classifiers.
