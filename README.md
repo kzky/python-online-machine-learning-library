@@ -2,7 +2,8 @@
 
 ## Description
 
-This is a online machine learning library for some famous classifiers including  
+This is a python online machine learning library (POMLL) for some famous classifiers.  
+The following classifiers are implemented.
 
 * Passive Agrressive Algorithm  
     * L1-hinge loss  
