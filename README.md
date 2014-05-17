@@ -50,7 +50,6 @@ Refer to the main function and and class method, examplify.
         2,0.1,0.2, ...,0.9  
 
 ## Note
-* Now python is only applicable.
 * All labeled samples to be leaned are included in memory.
 * Dense matrix format (2-dimensional ndarray) are used now.
 * All algorithm except for Multi-Class Multi-Label CW and SCW are for binary classification only.
