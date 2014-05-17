@@ -19,7 +19,7 @@ This is a online machine learning library for some famous classifiers including
     * L2-hinge loss  
 * Softconfidence Weighted  
     * L1-hinge loss, single contraint, and diagonal matrix  
-    * L2-hinge loss, single contraint, and diagonal matrix  
+* L2-hinge loss, single contraint, and diagonal matrix  
 * Logistic Regression (should not be used)  
     * solved with stochastic gradient  
 
@@ -30,6 +30,29 @@ This is a online machine learning library for some famous classifiers including
 
 ## How to use
 Refer to the main function and and class method, examplify.
+
+## Data Format
+* for Dense Matrix
+label,d_1,d_2,...,d_n
+
+    * example for binary  
+1,0.1,0.2, ...,0.9  
+2,0.1,0.2, ...,0.9  
+...  
+1,0.1,0.2, ...,0.9  
+2,0.1,0.2, ...,0.9  
+
+label cardinality must be 2.
+
+    * example for multi-class
+1,0.1,0.2, ...,0.9  
+2,0.1,0.2, ...,0.9  
+...  
+3,0.1,0.2, ...,0.9  
+2,0.1,0.2, ...,0.9
+
+label cardinality can not be 2.
+
 
 ## Note
 * Now python is only applicable.
