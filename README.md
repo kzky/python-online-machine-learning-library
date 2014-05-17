@@ -63,7 +63,7 @@ Refer to the main function and and class method, examplify.
 * http://webee.technion.ac.il/people/koby/publications/paper_nips08_std.pdf
 * http://icml.cc/2012/papers/86.pdf
 
-## Future Plan
+## Future Work
 * Sparse matrix is used.
 * Binary classifiers are extended to 1-vs-n and/or pair-wise classifiers.
 * All labeled samples to be used for learning are not necessarily included in memory.
