@@ -35,7 +35,7 @@ Refer to the main function and and class method, examplify.
 ## Data Format
 * Dense Matrix  
 
-label,d_1,d_2,...,d_n
+label,d1,d2,...,dn
 
     * example for binary
         * label cardinality must be 2.  
