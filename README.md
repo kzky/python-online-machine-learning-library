@@ -50,7 +50,7 @@ Refer to the main function and and class method, examplify.
         2,0.1,0.2, ...,0.9  
 
 ## Note
-* All labeled samples to be used to learning are included in memory.
+* All labeled samples to be used for learning are included in memory.
 * Dense matrix format (2-dimensional ndarray) are used now.
 * All algorithm except for Multi-Class Multi-Label CW and SCW are for binary classification only.
 * A sample is normalized such that the norm of sample is equal to 1.
@@ -66,5 +66,5 @@ Refer to the main function and and class method, examplify.
 ## Future Plan
 * Sparse matrix is used.
 * Binary classifiers are extended to 1-vs-n and/or pair-wise classifiers.
-* All labeled samples to be used to learning are not necessarily included in memory.
+* All labeled samples to be used for learning are not necessarily included in memory.
 
