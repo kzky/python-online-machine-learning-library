@@ -30,7 +30,7 @@ The following classifiers are implemented.
 * (scikit-learn)
 
 ## How to use
-Refer to the main function and and class method, examplify.
+Refer to the main function
 
 ## Data Format
 * Dense Matrix  
@@ -50,11 +50,10 @@ Refer to the main function and and class method, examplify.
         2,0.1,0.2, ...,0.9  
 
 ## Note
-* All labeled samples to be used for learning are included in memory.
-* Dense matrix format (2-dimensional ndarray) are used now.
+* All labeled samples to be used for learning are stored in memory.
+* Dense dataset (2-dimensional ndarray) are used now.
 * All algorithm except for Multi-Class Multi-Label CW and SCW are for binary classification only.
-* A sample is normalized such that the norm of sample is equal to 1.
-* Bias, 1 is added to a sample.
+* Bias, 1 is added to a sample, so you do not have to add 1 to dataset.
 
 ## References
 * http://webee.technion.ac.il/people/koby/publications/arow_nips09.pdf
@@ -64,7 +63,6 @@ Refer to the main function and and class method, examplify.
 * http://icml.cc/2012/papers/86.pdf
 
 ## Future Work
-* Sparse matrix is used.
-* Binary classifiers are extended to 1-vs-n and/or pair-wise classifiers.
-* All labeled samples to be used for learning are not necessarily included in memory.
+* Sparse dataset will be used.
+* Labeled samples to be used for learning are not necessarily stored in memory.
 
