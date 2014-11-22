@@ -20,7 +20,7 @@ The following classifiers are implemented.
     * L2-hinge loss  
 * Softconfidence Weighted  
     * L1-hinge loss, single contraint, and diagonal matrix  
-* L2-hinge loss, single contraint, and diagonal matrix  
+    * L2-hinge loss, single contraint, and diagonal matrix  
 * Logistic Regression (should not be used)  
     * solved with stochastic gradient  
 

@@ -235,7 +235,7 @@ class CWVar(object):
         model.learn()
 
         # predict (after learning)
-        data = np.loadtxt(fname, delimiter = " ")
+        data = np.loadtxt(fname, delimiter = delimiter)
         model._binalize(data)
         model.normalize(data[:, 1:])
         n_sample = data.shape[0]
