@@ -26,14 +26,14 @@ The following classifiers are implemented.
 
 ## Dependency
 * numpy
-* (scipy)
-* (scikit-learn)
+* scipy
+* scikit-learn
 
 ## How to use
 Refer to the main function
 
 ## Data Format
-* Dense Matrix  
+* Dense Labeled Samples
     * label,d1,d2,...,dn
     * example for binary  
         1,0.1,0.2, ...,0.9  
@@ -49,6 +49,12 @@ Refer to the main function
         3,0.1,0.2, ...,0.9  
         2,0.1,0.2, ...,0.9  
 
+*  Sparse Labeled Samples
+        label<space>feature-index:feature-val<space>feature-index:feature-val<space>..._
+        label<space>feature-index:feature-val<space>feature-index:feature-val<space>..._
+        ..._
+        label<space>feature-index:feature-val<space>feature-index:feature-val<space>..._
+    
 ## Note
 * All labeled samples to be used for learning are stored in memory.
 * Dense dataset (2-dimensional ndarray) are used now.
@@ -63,6 +69,5 @@ Refer to the main function
 * http://icml.cc/2012/papers/86.pdf
 
 ## Future Work
-* Sparse dataset will be used.
 * Labeled samples to be used for learning are not necessarily stored in memory.
-
+* Evaluation compared to batch-learning (e.g., liblinear)
