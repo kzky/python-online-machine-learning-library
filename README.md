@@ -33,7 +33,7 @@ The following classifiers are implemented.
 Refer to the main function
 
 ## Data Interface
-* Learn inteface takes two arguments of X and y whcih are a 2d-numpy array or a scipy sparse martix and an array-like object respectively like scikit-learn fit interface.
+* Learn inteface takes two arguments of X and y which are a 2d-numpy array or a scipy sparse martix and an array-like object respectively like scikit-learn fit interface.
 * Predict interface takes one argument which is a 1d-numpy array or a 1-by-n scipy sparse matrix.
 
 ## Data Format
