@@ -32,7 +32,14 @@ The following classifiers are implemented.
 ## How to use
 Refer to the main function
 
+## Data Interface
+* Learn inteface takes two arguments of X and y whcih are a 2d-numpy array or a scipy sparse martix and an array-like object respectively like scikit-learn fit interface.
+* Predict interface takes one argument which is a 1d-numpy array or a 1-by-n scipy sparse matrix.
+
 ## Data Format
+This is a sample data format to be stored in your storage.
+Any data format is acceptable unless you can feed data into learn/predict interface.
+
 * Dense Labeled Samples
     * label,d1,d2,...,dn
     * example for binary
@@ -60,7 +67,6 @@ Refer to the main function
     
 ## Note
 * All labeled samples to be used for learning are stored in memory.
-* Dense dataset (2-dimensional ndarray) are used now.
 * All algorithm except for Multi-Class Multi-Label CW and SCW are for binary classification only.
 * Bias, 1 is added to a sample, so you do not have to add 1 to dataset.
 
