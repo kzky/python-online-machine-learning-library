@@ -49,7 +49,8 @@ Refer to the main function
         3,0.1,0.2, ...,0.9  
         2,0.1,0.2, ...,0.9  
 
-*  Sparse Labeled Samples_
+*  Sparse Labeled Samples
+
         label<space>feature-index:feature-val<space>feature-index:feature-val<space>..._
         label<space>feature-index:feature-val<space>feature-index:feature-val<space>..._
         ..._
