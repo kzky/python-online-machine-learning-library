@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a python online machine learning library (POMLL) for some famous classifiers.  
+This is a python online machine learning library (POMLL) for some famous online-learning methods.  
 The following classifiers are implemented.
 
 * Passive Agrressive Algorithm  
@@ -29,14 +29,13 @@ The following classifiers are implemented.
 * scipy
 * scikit-learn
 
-## How to use
-Refer to the main function
-
 ## Data Interface
+Two intefaces are published learn and predict interface.
+
 * Learn inteface takes two arguments of X and y which are a 2d-numpy array or a scipy sparse martix and an array-like object respectively like scikit-learn fit interface.
 * Predict interface takes one argument which is a 1d-numpy array or a 1-by-n scipy sparse matrix.
 
-All you have to do is instantiate model, call learn method with samples and labels, an d predict for sample similar to scikit-learn interface
+All you have to do is instantiate model, call learn method with samples and labels, and predict for one sample similar to scikit-learn interface
 
 ```python:main.py
 # learn 
@@ -75,6 +74,9 @@ Any data format is acceptable unless you can feed data into learn/predict interf
         label<space>feature-index:feature-val<space>feature-index:feature-val<space>...
         ...
         label<space>feature-index:feature-val<space>feature-index:feature-val<space>...
+
+## How to use in detail
+Refer to the main function
     
 ## Note
 * All labeled samples to be used for learning are stored in memory.
