@@ -48,6 +48,20 @@ class MCWVarDiag(ConfidenceWeightedModel):
         self.model["eta"] = eta                  # confidence parameter
         self.model["phi"] = norm.ppf(norm.cdf(eta))  # inverse of cdf(eta)
         logger.info("init model finished")
+        pass
+
+    def init_params(self, mu, S):
+        """
+        This method is used for warm start.
+        Arguments:
+        - `mu`: model parameter mean
+        - `S`: model parameter covariance
+        """
+        self.model["warm_start"] = True
+        self.model["mu"] = mu
+        self.model["S"] = S
+        
+        pass
         
     def _learn(self, ):
         """
@@ -171,9 +185,11 @@ class MCWVarDiag(ConfidenceWeightedModel):
         self.data["classes"] = np.unique(y)
 
         logger.info("learn starts")
-        for k in self.data["classes"]:
-            self.model["mu"][k] = np.zeros(self.data["f_dims"] + 1)
-            self.model["S"][k] = np.ones(self.data["f_dims"] + 1)   # only for diagonal
+        if not self.model["warm_start"]:
+            for k in self.data["classes"]:
+                self.model["mu"][k] = np.zeros(self.data["f_dims"] + 1)
+                self.model["S"][k] = np.ones(self.data["f_dims"] + 1)   # only for diagonal
+            pass
         
         # learn
         st = time.time()
@@ -200,10 +216,12 @@ class MCWVarDiag(ConfidenceWeightedModel):
         self.data["classes"] = np.unique(y)
 
         logger.info("learn starts")
-        for k in self.data["classes"]:
-            self.model["mu"][k] = csr_matrix(np.zeros(self.data["f_dims"] + 1))
-            self.model["S"][k] = csr_matrix(np.ones(self.data["f_dims"] + 1))   # only for diagonal
-        
+        if not self.model["warm_start"]:
+            for k in self.data["classes"]:
+                self.model["mu"][k] = csr_matrix(np.zeros(self.data["f_dims"] + 1))
+                self.model["S"][k] = csr_matrix(np.ones(self.data["f_dims"] + 1))   # only for diagonal
+            pass
+    
         # learn
         st = time.time()
         for e in xrange(0, self.epochs):

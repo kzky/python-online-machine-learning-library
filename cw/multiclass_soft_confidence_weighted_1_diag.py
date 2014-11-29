@@ -10,7 +10,7 @@ from scipy.sparse import csr_matrix
 from scipy import sparse
 
 
-class MSCWDIDiag(ConfidenceWeightedModel):
+class MSCWIDiag(ConfidenceWeightedModel):
     """
     Diagonal elements of matrix version of Soft Confidence-Weighted I algorithm;
     non-diagonal elements in covariance matrix are ignored.
@@ -27,15 +27,11 @@ class MSCWDIDiag(ConfidenceWeightedModel):
         """
         model initialization.
         """
-        super(MSCWDIDiag, self).__init__(epochs)
+        super(MSCWIDiag, self).__init__(epochs)
 
         logger.basicConfig(level=logger.DEBUG)
         logger.info("init starts")
 
-        self.epochs = epochs
-        self.data = defaultdict()
-        self.model = defaultdict()
-        self.cache = defaultdict()
         self._init_model(C, eta)
         
         logger.info("init finished")
@@ -54,6 +50,20 @@ class MSCWDIDiag(ConfidenceWeightedModel):
         self.model["psi"] = 1 + self.model["phi_2"] / 2
         self.model["zeta"] = 1 + self.model["phi_2"]
         logger.info("init model finished")
+        pass
+    
+    def init_params(self, mu, S):
+        """
+        This method is used for warm start.
+        Arguments:
+        - `mu`: model parameter mean
+        - `S`: model parameter covariance
+        """
+        self.model["warm_start"] = True
+        self.model["mu"] = mu
+        self.model["S"] = S
+        
+        pass
         
     def _update_for_dense_samples(self, sample, y, r):
         """
@@ -221,16 +231,18 @@ class MSCWDIDiag(ConfidenceWeightedModel):
 
     def _learn_for_dense_samples(self, X, y):
         """
-        Learn.
+
         """
         logger.info("learn starts")
         self.data["n_samples"] = X.shape[0]
         self.data["f_dims"] = X.shape[1]
         self.data["classes"] = np.unique(y)
-        
-        for k in self.data["classes"]:
-            self.model["mu"][k] = np.zeros(self.data["f_dims"] + 1)
-            self.model["S"][k] = np.ones(self.data["f_dims"] + 1)   # only for diagonal
+
+        if not self.model["warm_start"]:
+            for k in self.data["classes"]:
+                self.model["mu"][k] = np.zeros(self.data["f_dims"] + 1)
+                self.model["S"][k] = np.ones(self.data["f_dims"] + 1)   # only for diagonal
+            pass
 
         # learn
         st = time.time()
@@ -257,10 +269,12 @@ class MSCWDIDiag(ConfidenceWeightedModel):
         self.data["f_dims"] = X.shape[1]
         self.data["classes"] = np.unique(y)
 
-        for k in self.data["classes"]:
-            self.model["mu"][k] = csr_matrix(np.zeros(self.data["f_dims"] + 1))
-            self.model["S"][k] = csr_matrix(np.ones(self.data["f_dims"] + 1))   # only for diagonal
-        
+        if not self.model["warm_start"]:
+            for k in self.data["classes"]:
+                self.model["mu"][k] = csr_matrix(np.zeros(self.data["f_dims"] + 1))
+                self.model["S"][k] = csr_matrix(np.ones(self.data["f_dims"] + 1))   # only for diagonal
+            pass
+
         # learn
         st = time.time()
         for e in xrange(0, self.epochs):
@@ -360,7 +374,7 @@ def main():
     y_pred = np.ndarray(n_samples)
 
     # learn
-    model = MSCWDIDiag(C=1, eta=0.9, epochs=1)
+    model = MSCWIDiag(C=1, eta=0.9, epochs=1)
     model.learn(X, y)
 
     # predict

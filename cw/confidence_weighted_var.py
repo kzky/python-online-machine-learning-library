@@ -231,7 +231,7 @@ class CWVar(object):
         """
         
         # learn
-        model = CWVar(fname = fname, delimiter = delimiter, eta = eta, a = a, n_scan = n_scan)
+        model = CWVar(fname=fname, delimiter=delimiter, eta=eta, a=a, n_scan=n_scan)
         model.learn()
 
         # predict (after learning)

@@ -18,6 +18,7 @@ class ConfidenceWeightedModel(object):
         self.data = defaultdict()
         self.model = defaultdict()
         self.cache = defaultdict()
+        self.model["warm_start"] = False
         self.data["one"] = csr_matrix(([1], ([0], [0])))
         
         pass

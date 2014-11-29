@@ -35,10 +35,6 @@ class MSCWIIDiag(ConfidenceWeightedModel):
         logger.basicConfig(level=logger.DEBUG)
         logger.info("init starts")
 
-        self.epochs = epochs
-        self.data = defaultdict()
-        self.model = defaultdict()
-        self.cache = defaultdict()
         self._init_model(C, eta)
         
         logger.info("init finished")
@@ -57,6 +53,21 @@ class MSCWIIDiag(ConfidenceWeightedModel):
         self.model["psi"] = 1 + self.model["phi_2"] / 2
         self.model["zeta"] = 1 + self.model["phi_2"]
         logger.info("init model finished")
+
+        pass
+
+    def init_params(self, mu, S):
+        """
+        This method is used for warm start.
+        Arguments:
+        - `mu`: model parameter mean
+        - `S`: model parameter covariance
+        """
+        self.model["warm_start"] = True
+        self.model["mu"] = mu
+        self.model["S"] = S
+        
+        pass
         
     def _learn(self, ):
         """
@@ -241,9 +252,11 @@ class MSCWIIDiag(ConfidenceWeightedModel):
         self.data["f_dims"] = X.shape[1]
         self.data["classes"] = np.unique(y)
 
-        for k in self.data["classes"]:
-            self.model["mu"][k] = np.zeros(self.data["f_dims"] + 1)
-            self.model["S"][k] = np.ones(self.data["f_dims"] + 1)   # only for diagonal
+        if not self.model["warm_start"]:
+            for k in self.data["classes"]:
+                self.model["mu"][k] = np.zeros(self.data["f_dims"] + 1)
+                self.model["S"][k] = np.ones(self.data["f_dims"] + 1)   # only for diagonal
+            pass
 
         # learn
         st = time.time()
@@ -270,9 +283,11 @@ class MSCWIIDiag(ConfidenceWeightedModel):
         self.data["f_dims"] = X.shape[1]
         self.data["classes"] = np.unique(y)
 
-        for k in self.data["classes"]:
-            self.model["mu"][k] = csr_matrix(np.zeros(self.data["f_dims"] + 1))
-            self.model["S"][k] = csr_matrix(np.ones(self.data["f_dims"] + 1))   # only for diagonal
+        if not self.model["warm_start"]:
+            for k in self.data["classes"]:
+                self.model["mu"][k] = csr_matrix(np.zeros(self.data["f_dims"] + 1))
+                self.model["S"][k] = csr_matrix(np.ones(self.data["f_dims"] + 1))   # only for diagonal
+            pass
 
         # learn
         st = time.time()
